@@ -30,7 +30,7 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
    git clone https://github.com/your-username/ComfyUI-Documents.git
    ```
 
-3. Install the required dependencies:
+3. Install the required dependencies: (The install script should handle the requirements on running ComfyUI, but if not):
    ```
    pip install -r ComfyUI-Documents/requirements.txt
    ```
