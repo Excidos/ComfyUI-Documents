@@ -70,7 +70,7 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 4. Set the DPI for the output images.
 5. The node will output the selected pages as separate image tensors.
 
-### Image Selector Node
+### Image Selector Node (WIP)
 
 1. Connect the output of a PDF to Image or PDF Page Splitter node to the Image Selector node.
 2. Enter the indexes of the images you want to select (e.g., "0" for the first image, or "0,2,4" for the first, third, and fifth images).
