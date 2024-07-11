@@ -10,6 +10,6 @@ Repository = "https://github.com/Excidos/ComfyUI-Documents"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "d9fd0ca0-fa6b-4902-b025-0e14d9283d6d"
 DisplayName = "ComfyUI-Documents"
-Icon = ""
+Icon = "https://imgur.com/a/jmt7W6y"
