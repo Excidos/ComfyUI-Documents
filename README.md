@@ -61,6 +61,7 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 3. Enter the desired page numbers (e.g., "1,3,5" or "1-5,7,9-11").
 4. Set the DPI for the output images.
 5. The node will output the selected pages as separate image tensors.
+![image](https://github.com/Excidos/ComfyUI-Documents/assets/173048329/5259c68c-cc5d-4b0e-8193-8c675c75df93)
 ### Image Selector Node (WIP)
 1. Connect the output of a PDF to Image or PDF Page Splitter node to the Image Selector node.
 2. Enter the indexes of the images you want to select (e.g., "0" for the first image, or "0,2,4" for the first, third, and fifth images).
@@ -70,6 +71,8 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 2. Set the desired chunk size and method (characters or words).
 3. Choose whether to respect word boundaries.
 4. The node will output chunked text and corresponding indices.
+![image](https://github.com/Excidos/ComfyUI-Documents/assets/173048329/a05cda0d-fa86-4545-97a3-855404520b95)
+
 ### Chunk Router Node
 1. Connect the output of the Text Chunker node to the Chunk Router node.
 2. Select the index of the chunk you want to process.
