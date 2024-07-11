@@ -22,7 +22,7 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
   - Split text by character or word count.
   - Respect word boundaries for more natural text division.
     
-- **Chunk Router Node**: Select specific text chunks for further processing.
+- **Chunk Router Node** (Currently Not Working) (WIP) : Select specific text chunks for further processing.
   - Route individual chunks to different parts of your workflow.
   - Useful for processing long documents in parts.
     
