@@ -81,7 +81,7 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 
 ![image](https://github.com/Excidos/ComfyUI-Documents/assets/173048329/a05cda0d-fa86-4545-97a3-855404520b95)
 
-### Chunk Router Node
+### Chunk Router Node (Currently Not Working) (WIP)
 1. Connect the output of the Text Chunker node to the Chunk Router node.
 2. Select the index of the chunk you want to process.
 3. The node will output the selected chunk for further processing.
