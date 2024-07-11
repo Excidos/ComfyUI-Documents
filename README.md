@@ -5,23 +5,31 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 - **Document Loader Node**: Easily browse, select, and parse documents from your input directory.
   - Supports multiple file formats including PDF, TXT, DOC, and DOCX.
   - Extracts text content, images, and metadata from documents.
+    
 - **PDF to Image Node**: Convert PDF pages into high-quality image tensors.
   - Flexible page range selection for partial document processing.
   - Adjustable DPI settings for output image quality control.
+    
 - **PDF Page Splitter Node**: Select specific pages from a PDF document.
   - Choose individual pages or ranges of pages.
   - Output selected pages as separate image tensors.
+    
 - **Image Selector Node**: Pick specific images from a batch of images.
   - Select one or multiple images by index.
   - Useful for further processing of specific pages from PDF conversions.
+    
 - **Text Chunker Node**: Divide large text into manageable chunks.
   - Split text by character or word count.
   - Respect word boundaries for more natural text division.
+    
 - **Chunk Router Node**: Select specific text chunks for further processing.
   - Route individual chunks to different parts of your workflow.
   - Useful for processing long documents in parts.
+    
 - **Intuitive File Upload**: Drag-and-drop functionality for quick file imports.
+  
 - **Seamless ComfyUI Integration**: Custom nodes appear directly in your ComfyUI workflow, allowing for easy incorporation into existing projects.
+  
 ## 🛠️ Installation
 1. Navigate to your ComfyUI custom nodes directory:
    ```
@@ -29,9 +37,9 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
    ```
 2. Clone this repository:
    ```
-   git clone https://github.com/your-username/ComfyUI-Documents.git
+   git clone https://github.com/Excidos/ComfyUI-Documents.git
    ```
-3. Install the required dependencies:
+3. Install the required dependencies (The install script should handle this automatically when you run ComfyUI): 
    ```
    pip install -r ComfyUI-Documents/requirements.txt
    ```
