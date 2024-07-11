@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-documents"
+description = "ComfyUI-Documents is a powerful extension for ComfyUI that enhances workflows with advanced document processing capabilities. It includes nodes for loading and parsing various document types (PDF, TXT, DOC, DOCX), converting PDF pages to images, splitting PDFs into individual pages, and selecting specific images from batches. Features include text extraction, image conversion, and seamless integration with existing ComfyUI projects."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["PyMuPDF", "python-docx", "pandas", "Markdown", "PyYAML"]
+
+[project.urls]
+Repository = "https://github.com/Excidos/ComfyUI-Documents"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "d9fd0ca0-fa6b-4902-b025-0e14d9283d6d"
+DisplayName = "ComfyUI-Documents"
+Icon = "https://imgur.com/a/jmt7W6y"
