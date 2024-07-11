@@ -48,41 +48,52 @@ ComfyUI-Documents is a powerful extension for the ComfyUI application, designed 
 1. Add the "Document Loader" node to your ComfyUI workflow.
 2. Use the dropdown to select a document from your input directory, or use the "Choose file to upload" button to add a new document.
 3. Connect the output to other nodes in your workflow to process the extracted text, images, or metadata.
+   
 ![Document Loader Node](https://github.com/IndrasMirror/ComfyUI-Documents/assets/111665831/cb9c0ab8-976f-4462-856f-17731eb3e852)
+
 ### PDF to Image Node
 1. Add the "PDF to Image" node to your ComfyUI workflow.
 2. Select a PDF file using the dropdown or file upload button.
 3. Set the desired page range and DPI.
 4. The node will output image tensors that can be used with other ComfyUI image processing nodes.
+   
 ![PDF to Image Node](https://github.com/IndrasMirror/ComfyUI-Documents/assets/111665831/34cb7333-09c3-4086-845e-bc4ca133f9ea)
+
 ### PDF Page Splitter Node
 1. Add the "PDF Page Splitter" node to your workflow.
 2. Select a PDF file using the dropdown.
 3. Enter the desired page numbers (e.g., "1,3,5" or "1-5,7,9-11").
 4. Set the DPI for the output images.
 5. The node will output the selected pages as separate image tensors.
+   
 ![image](https://github.com/Excidos/ComfyUI-Documents/assets/173048329/5259c68c-cc5d-4b0e-8193-8c675c75df93)
+
 ### Image Selector Node (WIP)
 1. Connect the output of a PDF to Image or PDF Page Splitter node to the Image Selector node.
 2. Enter the indexes of the images you want to select (e.g., "0" for the first image, or "0,2,4" for the first, third, and fifth images).
 3. The node will output only the selected images for further processing.
+
 ### Text Chunker Node
 1. Connect the output of a Document Loader or any text-producing node to the Text Chunker node.
 2. Set the desired chunk size and method (characters or words).
 3. Choose whether to respect word boundaries.
 4. The node will output chunked text and corresponding indices.
+
 ![image](https://github.com/Excidos/ComfyUI-Documents/assets/173048329/a05cda0d-fa86-4545-97a3-855404520b95)
 
 ### Chunk Router Node
 1. Connect the output of the Text Chunker node to the Chunk Router node.
 2. Select the index of the chunk you want to process.
 3. The node will output the selected chunk for further processing.
+   
 ## 📋 Supported File Types
 - PDF (.pdf)
 - Plain Text (.txt)
 - Microsoft Word (.doc, .docx)
+  
 ## 🤝 Contributing
 Contributions to ComfyUI-Documents are welcome! Please feel free to submit a Pull Request.
+
 ## 🙏 Acknowledgements
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) for the amazing base project.
 - [PyMuPDF](https://github.com/pymupdf/PyMuPDF) for robust PDF processing capabilities.
