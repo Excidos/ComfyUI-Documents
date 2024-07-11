@@ -198,16 +198,98 @@ class ImageSelectorNode:
     def IS_CHANGED(cls, images, indexes):
         return indexes
 
+class TextChunkerNode:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "text": ("STRING", {"multiline": True}),
+                "chunk_size": ("INT", {"default": 1000, "min": 1, "max": 10000}),
+                "chunk_method": (["words", "characters"],),
+                "respect_word_boundaries": ("BOOLEAN", {"default": True}),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text_chunks",)
+    FUNCTION = "chunk_text"
+    CATEGORY = "document_processing"
+    OUTPUT_NODE = True
+    OUTPUT_IS_LIST = (True,)
+
+    def chunk_text(self, text, chunk_size, chunk_method, respect_word_boundaries):
+        if not text:
+            return (["No text provided"],)
+
+        chunks = []
+        if chunk_method == "words":
+            words = text.split()
+            current_chunk = []
+            word_count = 0
+            for word in words:
+                current_chunk.append(word)
+                word_count += 1
+                if word_count >= chunk_size:
+                    chunks.append(" ".join(current_chunk))
+                    current_chunk = []
+                    word_count = 0
+            if current_chunk:
+                chunks.append(" ".join(current_chunk))
+        else:  # characters
+            if respect_word_boundaries:
+                words = text.split()
+                current_chunk = []
+                char_count = 0
+                for word in words:
+                    if char_count + len(word) > chunk_size and current_chunk:
+                        chunks.append(" ".join(current_chunk))
+                        current_chunk = []
+                        char_count = 0
+                    current_chunk.append(word)
+                    char_count += len(word) + 1  # +1 for space
+                if current_chunk:
+                    chunks.append(" ".join(current_chunk))
+            else:
+                chunks = [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
+
+        return (chunks,)
+
+class ChunkRouterNode:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "chunks": ("STRING", {"forceInput": True}),
+                "indices": ("INT", {"forceInput": True}),
+                "selected_index": ("INT", {"default": 0, "min": 0, "max": 1000}),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("selected_chunk",)
+    FUNCTION = "route_chunk"
+    CATEGORY = "document_processing"
+
+    def route_chunk(self, chunks, indices, selected_index):
+        if selected_index < 0 or selected_index >= len(chunks):
+            raise ValueError(f"Selected index {selected_index} is out of range. Available chunks: {len(chunks)}")
+        return (chunks[selected_index],)
+
+# Update NODE_CLASS_MAPPINGS and NODE_DISPLAY_NAME_MAPPINGS
 NODE_CLASS_MAPPINGS = {
     "DocumentLoader": DocumentLoaderNode,
     "PDFToImage": PDFToImageNode,
     "PDFPageSplitter": PDFPageSplitterNode,
-    "ImageSelector": ImageSelectorNode
+    "ImageSelector": ImageSelectorNode,
+    "TextChunker": TextChunkerNode,
+    "ChunkRouter": ChunkRouterNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "DocumentLoader": "Document Loader",
     "PDFToImage": "PDF to Image (Multi-Page)",
     "PDFPageSplitter": "PDF Page Splitter",
-    "ImageSelector": "Image Selector"
+    "ImageSelector": "Image Selector",
+    "TextChunker": "Text Chunker",
+    "ChunkRouter": "Chunk Router"
 }
